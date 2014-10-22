@@ -4,14 +4,28 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class Blank extends Activity {
+
+    private ImageButton onlyButton;
+    private EditText onlyText;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_blank);
+
+        onlyButton = (ImageButton) findViewById(R.id.imageButton);
+        onlyText   = (EditText) findViewById(R.id.userName);
+
     }
 
 
@@ -32,5 +46,13 @@ public class Blank extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onButtonClick(View view) {
+        String username = String.valueOf(onlyText.getText());
+
+        String myAnswar = "Wuhu - i got your text: " + username;
+
+        Toast.makeText(this, myAnswar, Toast.LENGTH_LONG).show();
     }
 }
